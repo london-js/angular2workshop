@@ -1,0 +1,5 @@
+*.js
+*.map
+typings
+*.css
+*.log
