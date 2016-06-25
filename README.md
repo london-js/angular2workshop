@@ -6,7 +6,7 @@
 ## API
 Have a look at the API to see what kind of data you can fetch
 
-    www.swapi.com  
+    www.swapi.co
     
 ## Running
 
@@ -125,6 +125,4 @@ Also for routes with parameter a little has happened. It used to be
 Now it is
 
     <a [routerLink]="['/products', product.id ]">Detail</a>
-        
 
-            
