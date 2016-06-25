@@ -23,7 +23,7 @@ property binding, one way. This can be used on most html attributes but also on 
 two way binding. Usually used when dealing with CRUD scenarios. This is also called banana binding due to its appearance.
 
 ```
-<input ([ngModel])="username" >
+<input [(ngModel)]="username" >
 ```
 
 
