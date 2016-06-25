@@ -3,3 +3,6 @@
 typings
 *.css
 *.log
+
+node_modules/
+.sass-cache/
