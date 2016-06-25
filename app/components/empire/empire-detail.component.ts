@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, ActivatedRoute } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
 import { EmpireService } from './empire.service';
 import { Villain } from '../shared/models';
 
@@ -36,7 +36,7 @@ export class EmpireDetailComponent implements OnInit {
     
     ngOnInit(){
         var me = this;
-        this.id = this.route.params.subscribe(params => {
+        this.route.params.subscribe(params => {
             let id = params['id']; // (+) converts string 'id' to a number
             me.id = id;
             this.empireService.getVillainDetail( me.id ).subscribe( villain => this.villain = villain );

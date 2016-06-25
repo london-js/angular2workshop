@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpireService } from './empire.service';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { Villain } from '../shared/models';
 import { PlanetsComponent } from '../planets/planets.component';
