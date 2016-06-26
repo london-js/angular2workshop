@@ -1,7 +1,6 @@
 *.js
 *.map
 typings
-*.css
 *.log
 
 node_modules/
