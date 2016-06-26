@@ -7,21 +7,21 @@
 Have a look at the API to see what kind of data you can fetch
 
     www.swapi.co
-    
+
 ## Running
 
     npm start
-    
+
 ## Task
 
 - Provide a detail link and page for a person ( on the empire page )
 - Provide a detail link and page for a planet ( on the empire page )
-- Ensure we can assign troops to planets. 
+- Ensure we can assign troops to planets.
 - Show a list of vehicles that can be assigned to a planet. ( on the empire page )
 - Ensure we can assign vehicles to planets
 - Ensure we can attack a planet when rules are fulfilled, see Rules section
 
-### Extra (Optional) 
+### Extra (Optional)
 
 
 Filter if possible so that only rebel people and rebel vehicles are shown under each
@@ -49,41 +49,27 @@ Its up to you wether to use the deprecated router or the new new alpha router
 ## New router
 ### Installation
 
-Angular comes with old router and to use the new one, also called Vladivostok we first need to uninstall the old one and then install the new one.
-
-    npm remove @angular/router --save // will remove the RC router
-    npm install @angular/router@3.0.0-alpha.7 --save // will install the latest router
-
-
-### Changes to system.config.js
-
-Add the following entry to packages:
-
-    '@angular/router': { main: 'index.js', defaultExtension: 'js' }
-    
-And remove the **router** entry from **ngPackageNames**.   
-    
 ### Registering routes and bootstrapping
 After that you need to change all import references to point to @angular/router instead of the deprecated one.
- 
+
 It differs somewhat how we set up the routes.
- 
+
  We will do the setup in main.ts. But first we to remove the @RouteConfig and create an app.routes.ts file looking like this.
-    
+
     import { provideRouter } from '@angular/router';
 
     import { ListComponent } from './components/component.list';
     import { DetailComponent } from './components/component.detail';
-   
+
     export const routes: RouterConfig = [
     {
         path: 'components',
-        
+
         component: ListComponent,
     },
     {
         path: 'components/:id',
-        
+
         component: DetailComponent,
     }];
 
@@ -92,9 +78,9 @@ It differs somewhat how we set up the routes.
     ];
 
  Note that all name properties are gone and that all of our paths does NOT start with /
-    
+
  I mentioned main.ts, this is how it turns out
- 
+
     import { bootstrap }    from '@angular/platform-browser-dynamic';
     import { AppComponent } from './app.component';
 
@@ -107,16 +93,16 @@ It differs somewhat how we set up the routes.
     ])
     .catch(err => console.error(err));
 
-As you can see we just import APP_ROUTER_PROVIDERS and add them as the second argument to bootstrap. 
+As you can see we just import APP_ROUTER_PROVIDERS and add them as the second argument to bootstrap.
 
 ### Changing the links
 We used to build the links like so:
 
-    <a [routerLink]="['Home']">Home</a> 
-    
-I.e we used to look at the name property that we registered a route entry with. As the name property is no more we need to rely on the path property instead like so:    
-    
-    <a [routerLink]="['/home']">Home</a> 
+    <a [routerLink]="['Home']">Home</a>
+
+I.e we used to look at the name property that we registered a route entry with. As the name property is no more we need to rely on the path property instead like so:
+
+    <a [routerLink]="['/home']">Home</a>
 
 Also for routes with parameter a little has happened. It used to be
 
@@ -125,4 +111,3 @@ Also for routes with parameter a little has happened. It used to be
 Now it is
 
     <a [routerLink]="['/products', product.id ]">Detail</a>
-

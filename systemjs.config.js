@@ -15,7 +15,7 @@
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-    '@angular/router': { main: 'index.js', defaultExtension: 'js' }
+    '@angular/router':            { main: 'index.js', defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',
@@ -24,13 +24,12 @@
     'http',
     'platform-browser',
     'platform-browser-dynamic',
-    
-    'router-deprecated',
+    'router',
     'upgrade',
   ];
-  
+
   var _packageConfig = {};
-  
+
   // Individual files (~300 requests):
   function packIndex(pkgName) {
     packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
@@ -42,9 +41,9 @@
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
   // Add package entries for angular packages
-  
-  
-  
+
+
+
   ngPackageNames.forEach(setPackageConfig);
   var config = {
     map: map,

@@ -12,15 +12,15 @@ import { Planet } from '../shared/models';
              {{ planet.name }}
             </div>
         </div>
-        
+
     `
 })
-export class PlanetsComponent implements OnInit{ 
+export class PlanetsComponent implements OnInit{
     planets:Array<Planet>;
-    constructor(private planetsService:PlanetsService) { 
-        
+    constructor(private planetsService:PlanetsService) {
+
     }
-    
+
     ngOnInit() {
         this.planetsService.getPlanets().subscribe( planets => this.planets = planets )
     }
